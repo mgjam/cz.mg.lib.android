@@ -7,13 +7,13 @@ import android.support.v4.net.ConnectivityManagerCompat
 fun Context.getConnectivityManager() = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
 fun Context.isDeviceOnline(): Boolean {
-    val networkStatus = getNewtorkStatus()
+    val networkStatus = getNetworkStatus()
 
     return networkStatus != NetworkStatus.Offline
 }
 
 fun Context.isBackgroundNetworkingEnabled(): Boolean =
-    when (getNewtorkStatus()) {
+    when (getNetworkStatus()) {
         NetworkStatus.Offline,
         NetworkStatus.MeteredNetworkBackgroundRestricted ->
             false
@@ -23,7 +23,7 @@ fun Context.isBackgroundNetworkingEnabled(): Boolean =
             true
     }
 
-fun Context.getNewtorkStatus(): NetworkStatus {
+fun Context.getNetworkStatus(): NetworkStatus {
     val connectivityManager = getConnectivityManager()
     val activeNetwork = connectivityManager.activeNetworkInfo
 
