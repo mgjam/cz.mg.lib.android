@@ -1,1 +1,1 @@
-include ':app', ':ioc', ':failableresult', ':logging', ':httpclient', ':extensions', ':helpers'
+include ':app', ':ioc', ':failableresult', ':logging', ':httpclient', ':extensions', ':helpers', ':validation'

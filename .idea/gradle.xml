@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/httpclient" />
             <option value="$PROJECT_DIR$/ioc" />
             <option value="$PROJECT_DIR$/logging" />
+            <option value="$PROJECT_DIR$/validation" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
