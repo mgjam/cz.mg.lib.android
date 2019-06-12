@@ -10,15 +10,13 @@ import cz.mg.lib.logging.Logger
 class HttpClientNetworkCheckDecorator(
     private val httpClient: HttpClient,
     private val logger: Logger,
-    private val contextFactory: () -> Context
+    private val context: Context
 ) : HttpClient {
     companion object {
         private const val TAG = "HttpClientNetworkCheckDecorator"
     }
 
     override fun sendRequest(request: HttpClientRequest): FailableResult<HttpClientResponse, HttpClientFailure> {
-        val context = contextFactory()
-
         if (!context.isDeviceOnline()) {
             logger.d(TAG, "Device is offline, interrupting HTTP request")
             return FailureResult.create(HttpClientFailure(HttpClientFailureType.OfflineDevice))
